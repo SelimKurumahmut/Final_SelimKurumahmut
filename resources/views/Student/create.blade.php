@@ -13,7 +13,17 @@
     <div class="row" style="margin-top: 45px;">
         <div class="col-md-6">
             <h4>Create</h4>
-            <form action="" method="post">
+            <form action="{{route('student.save')}}" method="get">
+                @if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+                @endif
+                @if(Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{Session::get('fail')}}
+                </div>
+                @endif
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
